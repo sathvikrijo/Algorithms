@@ -16,10 +16,29 @@ Node* newNode(int value)
     return temp;
 }
 
+void constructVerticalOrder(Node* root, int level, map<int, vector<int>> &vm)
+{
+    if(root == NULL)
+        return;
+    if(root)
+        vm[level].push_back(root->data);
+    constructVerticalOrder(root->left, level-1, vm);
+    constructVerticalOrder(root->right, level+1, vm);
+}
+
 void verticalOrderPrinting(Node *root, int level)
 {
     map<int, vector<int>> m;
-    
+    constructVerticalOrder(root, level, m);
+
+    for(auto it = m.begin(); it!=m.end(); it++)
+    {
+        for(auto vit=0; vit<it->second.size(); vit++)
+        {
+            cout<<it->second[vit]<<" ";
+        }
+        cout<<endl;
+    }
 }
 
 int main()
