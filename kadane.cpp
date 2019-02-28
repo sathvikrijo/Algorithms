@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-
 using namespace std;
 
 int kadane(int a[], int n)
@@ -21,5 +20,5 @@ int main()
 
     int max_sum = kadane(arr,size);
     cout<<max_sum<<endl;
-
+    return 0;
 }
