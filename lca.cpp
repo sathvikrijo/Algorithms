@@ -1,5 +1,4 @@
 #include<bits/stdc++.h>
-#define NULL __null
 using namespace std;
 
 struct Node
@@ -84,21 +83,18 @@ stack<int> findpathBTree(Node* root, int num)
     {
         stack<int> t;
         t.push(root->data);
-        cout<<"pushing->"<<root->data<<endl;
         return t;
     }
     temp = findpathBTree(root->left, num);
     if(!temp.empty())
     {
         temp.push(root->data);
-        cout<<"pushing->"<<root->data<<endl;
         return temp;
     }
     temp = findpathBTree(root->right, num);
     if(!temp.empty())
     {
         temp.push(root->data);
-        cout<<"pushing->"<<root->data<<endl;
         return temp;
     }
     return temp;
@@ -145,11 +141,11 @@ int main()
     broot->left->right->left = newNode(6); 
     broot->left->right->right  = newNode(7);
 
-    cout<<"BST: ";
+    cout<<"BST inorder: ";
     inorder(bstroot);
     cout<<endl;
 
-    cout<<"BTree: ";
+    cout<<"BTree inorder: ";
     inorder(broot);
     cout<<endl;
 
