@@ -21,7 +21,6 @@ bool checkLeavesAtSameLevel(Node* root, int level, int *Olevel)
         return true;
     if(root->left==NULL && root->right==NULL)
     {
-        //cout<<level<<" "<<*Olevel<<endl;
         if(*Olevel == 0)
         {
             *Olevel = level;
