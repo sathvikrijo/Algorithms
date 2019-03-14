@@ -1,6 +1,5 @@
 #include<bits/stdc++.h>
 #define N 6
-#define M 5
 using namespace std;
 
 void findPath(char grid[][N])
@@ -26,13 +25,13 @@ void findPath(char grid[][N])
         //else checks for neighbours
         else
         {
-            if(grid[row-1][col]=='1' || grid[row-1][col]=='C')
+            if((row-1>=0 && row-1<N) && grid[row-1][col]!='0')
                 q.push(make_pair(row-1,col));
-            if(grid[row+1][col]=='1' || grid[row+1][col]=='C')
+            if((row+1>=0 && row+1<N) && grid[row+1][col]!='0')
                 q.push(make_pair(row+1,col));
-            if(grid[row][col-1]=='1' || grid[row][col-1]=='C')
+            if((col-1>=0 && col-1<N) && grid[row][col-1]!='0')
                 q.push(make_pair(row,col-1));
-            if(grid[row][col+1]=='1' || grid[row][col+1]=='C')
+            if((col+1>=0 && col+1<N) && grid[row][col+1]!='0')
                 q.push(make_pair(row,col+1));
         }
         grid[row][col] = '0';
@@ -46,11 +45,12 @@ void findPath(char grid[][N])
 
 int main()
 {
-    char grid[][N] = {{'1', '0', '1', '1', '0', '0'}, 
+    char grid[N][N] = {{'1', '0', '1', '1', '0', '0'}, 
                     {'1', '1', '0', '1', '0', '1'}, 
                     {'0', '1', '1', 'C', '0', '1'}, 
                     {'0', '1', '0', '0', '0', '1'},
-                    {'0', '1', '1', '1', '1', '1'}};
+                    {'0', '1', '1', '1', '1', '1'},
+                    {'0', '1', '1', '0', '0', '0'}};
     
     findPath(grid);
 
