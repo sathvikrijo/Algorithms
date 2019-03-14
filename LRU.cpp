@@ -10,8 +10,20 @@ void LRUmissCount(int *pages, int max_cache_size, int length_of_pages)
     {
         if(dq.empty() || dq.size() != max_cache_size)
         {
+            bool found = false;
+            for(dqitr=dq.begin(); dqitr!=dq.end(); dqitr++)
+            {
+                if(*dqitr == pages[index])
+                {
+                    found = true;
+                    break;
+                }
+            }
+            if(found)
+                dq.erase(dqitr);
+            else
+                missCount++;
             dq.push_front(pages[index]);
-            missCount++;
         }
         else if(dq.size() == max_cache_size)
         {
@@ -24,7 +36,6 @@ void LRUmissCount(int *pages, int max_cache_size, int length_of_pages)
                     break;
                 }
             }
-
             if(found)
             {
                 dq.erase(dqitr);
@@ -36,7 +47,6 @@ void LRUmissCount(int *pages, int max_cache_size, int length_of_pages)
                 dq.push_front(pages[index]);
                 missCount++;
             }
-            
         }
     }
     cout<<missCount<<endl;
