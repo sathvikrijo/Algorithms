@@ -48,7 +48,6 @@ int main()
     {
         for(int cIndex=0; cIndex<size+2; cIndex++)
             reactor[rIndex][cIndex]='0';
-        cout<<endl;
     }
     cout<<"Enter the number of atoms:\n";
     cin>>noa;
