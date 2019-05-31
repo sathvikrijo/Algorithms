@@ -19,12 +19,19 @@ char dequeue()
     return queue[front++];
 }
 
+head *itr1;
+link *itr2;
+
 int main()
 {
     input();
+    char src;
     char de_ele;
+    cout<<"Enter the source vertex from which the BFS need to be done: ";
+    cin>>src;
+    cout<<"BFS: ";
     memset(visited, false, 256);
-    enqueue('A');
+    enqueue(src);
     while(front<=rear || front==0)
     {
         de_ele = dequeue();
