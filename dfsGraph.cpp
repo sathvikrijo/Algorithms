@@ -17,12 +17,19 @@ char pop()
     return stack[top--];
 }
 
+head *itr1;
+link *itr2;
+
 int main()
 {
     input();
+    char src;
     char de_ele;
+    cout<<"Enter the source vertex from which the DFS need to be done: ";
+    cin>>src;
+    cout<<"DFS: ";
     memset(visited, false, 256);
-    push('A');
+    push(src);
     while(top!=-1)
     {
         de_ele = pop();
