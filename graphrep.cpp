@@ -18,8 +18,8 @@ struct head
     link* links;
 };
 
-head *start, *temp, *newHead, *itr1;
-link *newLink, *itr2, *tempLink;
+head *start, *temp, *newHead, *tempHead;
+link *newLink, *tempLink;
 
 int input()
 {
@@ -33,12 +33,12 @@ int input()
         if(ch1 == '$')
             break;
         cin>>ch2>>weight;
-        nov++;
         if(start == NULL)
         {
             newHead = new head();
             newHead->ch = ch1;
             start = newHead;
+            nov++;
 
             newLink = new link();
             newLink->ch = ch2;
@@ -50,6 +50,7 @@ int input()
             newHead->ch = ch2;
             newHead->head_next = start;
             start = newHead;
+            nov++;
 
             newLink = new link();
             newLink->ch = ch1;
@@ -67,6 +68,7 @@ int input()
                 newHead->ch = ch1;
                 newHead->head_next = start;
                 start = newHead;
+                nov++;
 
                 newLink = new link();
                 newLink->ch = ch2;
@@ -91,6 +93,7 @@ int input()
                 newHead->ch = ch2;
                 newHead->head_next = start;
                 start = newHead;
+                nov++;
 
                 newLink = new link();
                 newLink->ch = ch1;
@@ -108,10 +111,10 @@ int input()
             }
         }
     }
-    for(itr1=start; itr1!=NULL; itr1=itr1->head_next)
+    for(head* itr1=start; itr1!=NULL; itr1=itr1->head_next)
     {
         cout<<itr1->ch<<"\t";
-        for(itr2=itr1->links; itr2!=NULL; itr2=itr2->next)
+        for(link* itr2=itr1->links; itr2!=NULL; itr2=itr2->next)
             cout<<"<"<<itr2->ch<<","<<itr2->weight<<"> ";
         cout<<endl;
     }
